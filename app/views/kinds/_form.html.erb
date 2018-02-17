@@ -1,0 +1,25 @@
+<%= form_for(@kind) do |f| %>
+  <% if @kind.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@kind.errors.count, "error") %> prohibited this kind from being saved:</h2>
+
+      <ul>
+      <% @kind.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <form>
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.label :description %>:
+        <%= f.text_field :description, class: "form-control", placeholder: "Descrição" %>
+      </div>
+      <%= f.submit t('buttons.save'), class: "btn btn-primary" %>
+      <%= link_to 'Voltar', kinds_path, class: "btn btn-warning" %>
+      </div>
+  </form>
+
+<% end %>

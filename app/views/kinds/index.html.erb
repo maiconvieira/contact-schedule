@@ -1,0 +1,46 @@
+<script>
+  var alert = "<%= notice %>";
+  if(alert == "Item criado com sucesso!"){
+    $.notify(alert, "success");
+  }
+  else if (alert == "Item atualizado com sucesso!"){
+    $.notify(alert, "info");
+  }
+  else if (alert == "Item apagado com sucesso!"){
+    $.notify(alert, "error");
+  }
+    
+</script>
+
+<div class="container">
+  <h1 class="text-center">Listando Tipos</h1>
+  
+  <div class="row">
+    <div class="col-md-offset-4 col-md-4">
+      <table class="table table-condensed table-bordered table-hover text-center">
+        <thead>
+          <tr>
+            <th class="text-center">Descrição</th>
+            <th colspan="3"  class="text-center">Ações</th>
+          </tr>
+        </thead>
+        
+        <tbody>
+          <% @kinds.each do |kind| %>
+            <tr>
+              <td><%= kind.description %></td>
+              <td>
+                <%= link_to 'Mostrar', kind %> | 
+                <%= link_to 'Editar', edit_kind_path(kind) %> | 
+                <%= link_to 'Deletar', kind, method: :delete, data: { confirm: 'Deseja excluir o tipo?' } %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody> 
+      </table>
+      <br>
+      <%= link_to t('buttons.new'), new_kind_path, class: "btn btn-primary" %>
+      <%= link_to t('buttons.home'), root_path, class: "btn btn-warning" %>
+    </div>
+  </div>
+</div>

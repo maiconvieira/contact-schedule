@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="panel panel-default">
+      <div class="panel-heading"><h5>Visualizando Tipo:</h5></div>
+      <div class="panel-body">
+        <p>
+          <strong>Descrição:</strong>
+          <%= @kind.description %>
+        </p>
+      </div>
+      <div class="panel-footer">
+        <%= link_to 'Editar', edit_kind_path(@kind), class: "btn btn-success" %>
+        <%= link_to 'Voltar', kinds_path, class: "btn btn-warning" %>
+      </div>
+    </div>
+</div>
